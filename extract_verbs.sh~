@@ -117,6 +117,6 @@ find extracted -type f -exec cat {} \; > all-extracted.txt
 find extracted -type f -exec bash -c "cat '{}' | treetagger/cmd/tree-tagger-"$LANGUAGE" | grep VER >> verbs" \;
 sort -u verbs > unique-sorted-verbs
 # Extract vocabulary
-python scripts/bag_of_words.py all-extracted.txt "$LANGUAGE"
+python scripts/bag_of_words.py all-extracted.txt
 # POS tagging + chunker with TextPro
 perl textpro.pl -verbose -html -l ita -c token+sentence+pos+chunk -o . ~/srl/training/"$LANGCODE"wiki/gold
