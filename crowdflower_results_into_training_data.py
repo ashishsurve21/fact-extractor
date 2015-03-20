@@ -133,7 +133,7 @@ def produce_training_data(annotations, pos_tagged_sentences_dir, debug):
     for sentence_id, annotations in annotations.iteritems():
 
         # open treetagger output with tagged words
-        with(codecs.open(pos_tagged_sentences_dir + sentence_id, 'rb', 'utf-8')) as i:
+        with(codecs.open(pos_tagged_sentences_dir + "/" + sentence_id, 'rb', 'utf-8')) as i:
             lines = [l.strip().split('\t') for l in i.readlines()]
             processed = process_sentence(sentence_id, annotations, lines)
             output.extend(processed)
